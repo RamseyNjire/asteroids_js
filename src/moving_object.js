@@ -12,4 +12,9 @@ MovingObject.prototype.draw = function(context){
     context.fill();
 };
 
+MovingObject.prototype.move = function(){
+    this.position[0] += this.velocity[0];
+    this.position[1] += this.velocity[1];
+}
+
 module.exports = MovingObject;
