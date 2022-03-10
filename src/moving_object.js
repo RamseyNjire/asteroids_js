@@ -1,3 +1,5 @@
+// This is the base class for all moving objects. It takes in some initial attributes and also has general draw and move methods based on the assumption that our moving objects will be circles.
+
 function MovingObject(initialAttributes){
     this.position = initialAttributes.position;
     this.velocity = initialAttributes.velocity;

@@ -25,7 +25,7 @@ eval("const MovingObject = __webpack_require__(/*! ./moving_object */ \"./src/mo
   \******************************/
 /***/ ((module) => {
 
-eval("function MovingObject(initialAttributes){\n    this.position = initialAttributes.position;\n    this.velocity = initialAttributes.velocity;\n    this.radius = initialAttributes.radius;\n    this.color = initialAttributes.color;\n}\n\nMovingObject.prototype.draw = function(context){\n    context.fillStyle = this.color;\n    context.beginPath();\n    context.arc(this.position[0], this.position[1], this.radius, 0, 2 * Math.PI, false);\n    context.fill();\n};\n\nmodule.exports = MovingObject;\n\n//# sourceURL=webpack:///./src/moving_object.js?");
+eval("// This is the base class for all moving objects. It takes in some initial attributes and also has general draw and move methods based on the assumption that our moving objects will be circles.\n\nfunction MovingObject(initialAttributes){\n    this.position = initialAttributes.position;\n    this.velocity = initialAttributes.velocity;\n    this.radius = initialAttributes.radius;\n    this.color = initialAttributes.color;\n}\n\nMovingObject.prototype.draw = function(context){\n    context.fillStyle = this.color;\n    context.beginPath();\n    context.arc(this.position[0], this.position[1], this.radius, 0, 2 * Math.PI, false);\n    context.fill();\n};\n\nMovingObject.prototype.move = function(){\n    this.position[0] += this.velocity[0];\n    this.position[1] += this.velocity[1];\n}\n\nmodule.exports = MovingObject;\n\n//# sourceURL=webpack:///./src/moving_object.js?");
 
 /***/ })
 
