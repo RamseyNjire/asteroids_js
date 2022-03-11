@@ -1,14 +1,12 @@
 const Asteroid = require('./asteroid');
-const MovingObject = require('./moving_object');
-
-window.MovingObject = MovingObject;
+const Game = require('./game');
 
 window.addEventListener('DOMContentLoaded', function(event) {
     const canvas = document.getElementById('game-canvas');
     const context = canvas.getContext('2d');
-    const asteroid = new Asteroid({
-        position: [50, 50],
-    });
+    const game = new Game();
 
-    asteroid.draw(context);
+    game.addAsteroids();
+
+    game.draw(context);
 })

@@ -1,3 +1,4 @@
+const Asteroid = require('./asteroid');
 const GAME_WIDTH = 300;
 const GAME_LENGTH = 300;
 const NUM_ASTEROIDS = 10;
@@ -29,3 +30,5 @@ Game.prototype.draw = function (context) {
 Game.prototype.move = function () {
     this.asteroids.forEach(asteroid => asteroid.move());
 };
+
+module.exports = Game;
