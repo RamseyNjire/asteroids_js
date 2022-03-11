@@ -1,6 +1,6 @@
 const Util = require('./util');
 const MovingObject = require('./moving_object');
-const COLOR = '#FFF';
+const COLOR = '#00FF00';
 const RADIUS = 10;
 
 function Asteroid(initialAttributes){
