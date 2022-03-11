@@ -1,12 +1,10 @@
 const Asteroid = require('./asteroid');
-const Game = require('./game');
+const GameView = require('./game_view');
 
 window.addEventListener('DOMContentLoaded', function(event) {
     const canvas = document.getElementById('game-canvas');
     const context = canvas.getContext('2d');
-    const game = new Game();
+    const gameView = new GameView(context);
 
-    game.addAsteroids();
-
-    game.draw(context);
+    gameView.start();
 })

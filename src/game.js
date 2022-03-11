@@ -27,7 +27,7 @@ Game.prototype.draw = function (context) {
     this.asteroids.forEach( asteroid => asteroid.draw(context));
 };
 
-Game.prototype.move = function () {
+Game.prototype.moveObjects = function () {
     this.asteroids.forEach(asteroid => asteroid.move());
 };
 
