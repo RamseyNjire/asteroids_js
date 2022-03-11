@@ -18,7 +18,7 @@ const Util = {
 
     randomVector: function(length) {
         const degree = 2 * Math.PI * Math.random();
-        return Util.scale([Math.sin(deg), Math.cos(deg)], length);
+        return Util.scale([Math.sin(degree), Math.cos(degree)], length);
     }
     
 };
