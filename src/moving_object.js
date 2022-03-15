@@ -1,5 +1,7 @@
 // This is the base class for all moving objects. It takes in some initial attributes and also has general draw and move methods based on the assumption that our moving objects will be circles.
 
+const Util = require('./util');
+
 function MovingObject(initialAttributes) {
     this.position = initialAttributes.position;
     this.velocity = initialAttributes.velocity;
@@ -23,7 +25,14 @@ MovingObject.prototype.move = function() {
 }
 
 MovingObject.prototype.isCollidedWith = function(otherObject) {
-    
+    return Util.distance(this.position, otherObject.position) < (this.radius + otherObject.radius);
+}
+
+MovingObject.prototype.collideWith = function(otherObject) {
+    if(this.isCollidedWith(otherObject)) {
+        this.game.remove(this);
+        this.game.remove(otherObject);
+    }
 }
 
 module.exports = MovingObject;

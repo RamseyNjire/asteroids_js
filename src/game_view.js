@@ -10,7 +10,7 @@ GameView.prototype.start = function() {
     const context = this.context;
     game.addAsteroids();
     const intervalID = setInterval(function(){
-        game.moveObjects();
+        game.step();
         game.draw(context);
     }, 20);
 };
