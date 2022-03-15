@@ -9,6 +9,7 @@ function Asteroid(initialAttributes){
 
     MovingObject.call(this, {
         position: initialAttributes.position,
+        game: initialAttributes.game,
         velocity: Util.randomVector(2),
         radius: this.radius,
         color: this.color

@@ -13,7 +13,8 @@ function Game() {
 Game.prototype.addAsteroids = function() {
     for (let i = 0; i < NUM_ASTEROIDS; i++) {
         this.asteroids.push(new Asteroid({
-            position: this.randomPosition()
+            position: this.randomPosition(),
+            game: this
         }));
     }
 };
@@ -30,5 +31,10 @@ Game.prototype.draw = function (context) {
 Game.prototype.moveObjects = function () {
     this.asteroids.forEach(asteroid => asteroid.move());
 };
+
+Game.prototype.wrap = function(position) {
+    position[0] = position[0] % this.width;
+    position[1] = position[1] % this.length;
+}
 
 module.exports = Game;

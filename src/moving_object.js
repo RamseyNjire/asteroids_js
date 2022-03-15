@@ -5,6 +5,7 @@ function MovingObject(initialAttributes) {
     this.velocity = initialAttributes.velocity;
     this.radius = initialAttributes.radius;
     this.color = initialAttributes.color;
+    this.game = initialAttributes.game;
 }
 
 MovingObject.prototype.draw = function(context) {
@@ -17,6 +18,8 @@ MovingObject.prototype.draw = function(context) {
 MovingObject.prototype.move = function() {
     this.position[0] += this.velocity[0];
     this.position[1] += this.velocity[1];
+
+    this.game.wrap(this.position);
 }
 
 module.exports = MovingObject;
