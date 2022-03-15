@@ -22,4 +22,8 @@ MovingObject.prototype.move = function() {
     this.game.wrap(this.position);
 }
 
+MovingObject.prototype.isCollidedWith = function(otherObject) {
+    
+}
+
 module.exports = MovingObject;

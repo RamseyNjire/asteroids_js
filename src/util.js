@@ -19,6 +19,14 @@ const Util = {
     randomVector: function(length) {
         const degree = 2 * Math.PI * Math.random();
         return Util.scale([Math.sin(degree), Math.cos(degree)], length);
+    },
+
+    // This method will calculate the distance between two points.
+
+    distance: function(pos1, pos2) {
+        const dx = pos1[0] - pos2[0];
+        const dy = pos1[1] - pos2[1];
+        return Math.sqrt(dx * dx + dy * dy);
     }
     
 };
