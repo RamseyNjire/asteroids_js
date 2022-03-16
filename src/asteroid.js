@@ -1,5 +1,6 @@
 const Util = require('./util');
 const MovingObject = require('./moving_object');
+const Ship = require('./ship');
 const COLOR = '#00FF00';
 const RADIUS = 10;
 
@@ -18,6 +19,17 @@ function Asteroid(initialAttributes){
 
 
 Util.setUpInheritance(Asteroid, MovingObject);
+
+Asteroid.prototype.collideWith = function (otherObject) {
+    if(otherObject instanceof Ship){
+        otherObject.relocate();
+    }
+
+    if(otherObject instanceof Asteroid){
+        this.game.remove(this);
+        this.game.remove(otherObject);
+    }
+}
 
 
 

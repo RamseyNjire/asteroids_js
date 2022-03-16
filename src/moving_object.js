@@ -21,7 +21,7 @@ MovingObject.prototype.move = function() {
     this.position[0] += this.velocity[0];
     this.position[1] += this.velocity[1];
 
-    this.game.wrap(this.position);
+    this.position = this.game.wrap(this.position);
 }
 
 MovingObject.prototype.isCollidedWith = function(otherObject) {
@@ -29,10 +29,7 @@ MovingObject.prototype.isCollidedWith = function(otherObject) {
 }
 
 MovingObject.prototype.collideWith = function(otherObject) {
-    if(this.isCollidedWith(otherObject)) {
-        this.game.remove(this);
-        this.game.remove(otherObject);
-    }
+    // We'll do nothing here by default. Actual logic for handling collisions will happen in the subclasses of MovingObject.
 }
 
 module.exports = MovingObject;
