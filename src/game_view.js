@@ -18,7 +18,8 @@ GameView.prototype.start = function() {
 
 GameView.prototype.bindKeyHandlers = function() {
     const ship = this.game.ship;
-    key('w, up', function(){
+    const keys = ["KeyW", "ArrowUp", "KeyS", "ArrowDown", "KeyA", "ArrowLeft", "KeyD", "ArrowRight"];
+    key('w, up', function(event, handler){
         ship.power([0, -1]);
     });
     key('d, right', function () {
@@ -30,6 +31,12 @@ GameView.prototype.bindKeyHandlers = function() {
     key('a, left', function () {
         ship.power([-1, 0]);
     });
+
+    document.onkeyup = function(event) {
+        if(keys.includes(event.key)){
+            ship.velocity = [0, 0];
+        };
+    };
 }
 
 module.exports = GameView;
