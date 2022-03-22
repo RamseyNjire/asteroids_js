@@ -21,7 +21,13 @@ MovingObject.prototype.move = function() {
     this.position[0] += this.velocity[0];
     this.position[1] += this.velocity[1];
 
-    this.position = this.game.wrap(this.position);
+    if(this.game.isOutOfBounds(this.position)) {
+        if(this.isWrappable()) {     
+            this.game.wrap(this.position);
+        } else {
+            this.game.remove(this);
+        }
+    }
 }
 
 MovingObject.prototype.isCollidedWith = function(otherObject) {
@@ -30,6 +36,11 @@ MovingObject.prototype.isCollidedWith = function(otherObject) {
 
 MovingObject.prototype.collideWith = function(otherObject) {
     // We'll do nothing here by default. Actual logic for handling collisions will happen in the subclasses of MovingObject.
+}
+
+MovingObject.prototype.isWrappable = function() {
+    // All moving objects are wrappable by default. This is an abstract method, so we'll let subclasses decide what to do.
+    return true
 }
 
 module.exports = MovingObject;

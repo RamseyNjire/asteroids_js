@@ -31,6 +31,9 @@ GameView.prototype.bindKeyHandlers = function() {
     key('a, left', function () {
         ship.power([-1, 0]);
     });
+    key('space', function () {
+        ship.fireBullet();
+    })
 
     document.onkeyup = function(event) {
         if(keys.includes(event.key)){

@@ -1,11 +1,13 @@
 const Asteroid = require('./asteroid');
 const Ship = require('./ship');
+const Bullet = require('./bullet');
 const GAME_WIDTH = 400;
 const GAME_LENGTH = 400;
 const NUM_ASTEROIDS = 100;
 
 function Game() {    
     this.asteroids = [];
+    this.bullets = [];
     this.width = GAME_WIDTH;
     this.length = GAME_LENGTH;
     this.ship = new Ship({
@@ -15,9 +17,31 @@ function Game() {
 }
 
 
+Game.prototype.add = function(object) {
+    if (object instanceof Asteroid) {
+        this.asteroids.push(object);
+    }
+
+    if(object instanceof Bullet) {
+        this.bullets.push(object);
+    }
+}
+
+Game.prototype.remove = function(object){
+    if (object instanceof Asteroid) {
+        index = this.asteroids.indexOf(object);
+        this.asteroids.splice(index, 1);
+    }
+
+    if (object instanceof Bullet) {
+        index = this.bullets.indexOf(object);
+        this.bullets.splice(index, 1);
+    }
+}
+
 Game.prototype.addAsteroids = function() {
     for (let i = 0; i < NUM_ASTEROIDS; i++) {
-        this.asteroids.push(new Asteroid({
+        this.add(new Asteroid({
             position: this.randomPosition(),
             game: this
         }));
@@ -25,7 +49,7 @@ Game.prototype.addAsteroids = function() {
 };
 
 Game.prototype.allObjects = function() {
-    return [].concat(this.asteroids, this.ship);
+    return [].concat(this.asteroids, this.ship, this.bullets);
 }
 
 Game.prototype.randomPosition = function() {
@@ -57,13 +81,13 @@ Game.prototype.checkCollisions = function(){
     })
 }
 
+Game.prototype.isOutOfBounds = function(position) {
+    return (position[0] < 0 || position[0] > this.width || position[1] < 0 || position[1] > this.length);
+}
+
 Game.prototype.step = function() {
     this.moveObjects();
     this.checkCollisions();
-}
-
-Game.prototype.remove = function(asteroid) {
-    this.asteroids.splice(this.asteroids.indexOf(asteroid), 1);
 }
 
 module.exports = Game;
