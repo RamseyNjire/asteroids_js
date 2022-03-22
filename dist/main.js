@@ -55,7 +55,7 @@ eval("const Game = __webpack_require__(/*! ./game */ \"./src/game.js\");\n\nfunc
   \**********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const Asteroid = __webpack_require__(/*! ./asteroid */ \"./src/asteroid.js\");\nconst GameView = __webpack_require__(/*! ./game_view */ \"./src/game_view.js\");\n\nwindow.addEventListener('DOMContentLoaded', function(event) {\n    const canvas = document.getElementById('game-canvas');\n    const context = canvas.getContext('2d');\n    const gameView = new GameView(context);\n\n    gameView.start();\n})\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const Asteroid = __webpack_require__(/*! ./asteroid */ \"./src/asteroid.js\");\nconst GameView = __webpack_require__(/*! ./game_view */ \"./src/game_view.js\");\n\nwindow.addEventListener('DOMContentLoaded', function(event) {\n    const canvas = document.getElementById('game-canvas');\n    const context = canvas.getContext('2d');\n    // const image = new Image();\n    // image.onload = function () {\n    //     context.drawImage(image, 0, 0, 400, 400);\n    // };\n    const gameView = new GameView(context);\n\n    gameView.start();\n})\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
