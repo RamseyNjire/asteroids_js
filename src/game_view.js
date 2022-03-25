@@ -8,8 +8,12 @@ function GameView(context) {
 GameView.prototype.start = function() {
     const game = this.game;
     const context = this.context;
+    // context.clearRect(0, 0, game.width, game.length);
     game.addAsteroids();
     this.bindKeyHandlers();
+    // game.step();
+    // game.draw(context);
+    // window.requestAnimationFrame(this.start.bind(this));
     const intervalID = setInterval(function(){
         game.step();
         game.draw(context);
@@ -19,19 +23,19 @@ GameView.prototype.start = function() {
 GameView.prototype.bindKeyHandlers = function() {
     const ship = this.game.ship;
     const keys = ["KeyW", "ArrowUp", "KeyS", "ArrowDown", "KeyA", "ArrowLeft", "KeyD", "ArrowRight"];
-    key('w, up', function(event, handler){
+    window.key('w, up', function(event, handler){
         ship.power([0, -1]);
     });
-    key('d, right', function () {
+    window.key('d, right', function () {
         ship.power([1, 0]);
     });
-    key('s, down', function () {
+    window.key('s, down', function () {
         ship.power([0, 1]);
     });
-    key('a, left', function () {
+    window.key('a, left', function () {
         ship.power([-1, 0]);
     });
-    key('space', function () {
+    window.key('space', function () {
         ship.fireBullet();
     })
 
