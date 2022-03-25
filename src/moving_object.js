@@ -17,9 +17,10 @@ MovingObject.prototype.draw = function(context) {
     context.fill();
 };
 
-MovingObject.prototype.move = function() {
-    this.position[0] += this.velocity[0];
-    this.position[1] += this.velocity[1];
+MovingObject.prototype.move = function(timeDelta) {
+    const delta = timeDelta || 1;
+    this.position[0] += (this.velocity[0] * delta) / 20;
+    this.position[1] += (this.velocity[1] * delta) / 20;
 
     if(this.game.isOutOfBounds(this.position)) {
         if(this.isWrappable()) {     

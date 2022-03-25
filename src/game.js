@@ -61,8 +61,8 @@ Game.prototype.draw = function(context) {
     this.allObjects().forEach(object => object.draw(context));
 };
 
-Game.prototype.moveObjects = function() {
-    this.allObjects().forEach(object => object.move());
+Game.prototype.moveObjects = function(timeDelta) {
+    this.allObjects().forEach(object => object.move(timeDelta));
 };
 
 Game.prototype.wrap = function(position) {
@@ -85,8 +85,8 @@ Game.prototype.isOutOfBounds = function(position) {
     return (position[0] < 0 || position[0] > this.width || position[1] < 0 || position[1] > this.length);
 }
 
-Game.prototype.step = function() {
-    this.moveObjects();
+Game.prototype.step = function(timeDelta) {
+    this.moveObjects(timeDelta);
     this.checkCollisions();
 }
 
