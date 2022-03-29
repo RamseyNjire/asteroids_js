@@ -11,7 +11,7 @@ function Bullet(initialAttributes){
 
     MovingObject.call(this, {
         position: initialAttributes.position,
-        velocity: Util.scale(initialAttributes.velocity, 2),
+        velocity: Util.scale(initialAttributes.velocity, 5),
         radius: this.radius,
         color: this.color,
         game: initialAttributes.game

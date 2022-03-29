@@ -1,6 +1,7 @@
 const Util = require('./util');
 const MovingObject = require('./moving_object');
 const Ship = require('./ship');
+const Bullet = require('./bullet');
 const COLOR = '#00FF00';
 const RADIUS = 10;
 
@@ -25,7 +26,7 @@ Asteroid.prototype.collideWith = function (otherObject) {
         otherObject.relocate();
     }
 
-    if(otherObject instanceof Asteroid){
+    if(otherObject instanceof Bullet){
         this.game.remove(this);
         this.game.remove(otherObject);
     }

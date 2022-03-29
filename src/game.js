@@ -3,7 +3,7 @@ const Ship = require('./ship');
 const Bullet = require('./bullet');
 const GAME_WIDTH = 400;
 const GAME_LENGTH = 400;
-const NUM_ASTEROIDS = 100;
+const NUM_ASTEROIDS = 20;
 
 function Game() {    
     this.asteroids = [];

@@ -14,7 +14,7 @@ GameView.prototype.start = function() {
 
 GameView.prototype.bindKeyHandlers = function() {
     const ship = this.game.ship;
-    const keys = ["KeyW", "ArrowUp", "KeyS", "ArrowDown", "KeyA", "ArrowLeft", "KeyD", "ArrowRight"];
+    const keys = ["w", "ArrowUp", "s", "ArrowDown", "a", "ArrowLeft", "d", "ArrowRight"];
     window.key('w, up', function(event, handler){
         ship.power([0, -1]);
     });
@@ -29,13 +29,16 @@ GameView.prototype.bindKeyHandlers = function() {
     });
     window.key('space', function () {
         ship.fireBullet();
-    })
+    });
+    window.key('r', function () {
+        ship.velocity = [0, 0];
+    });
 
-    document.onkeyup = function(event) {
-        if(keys.includes(event.key)){
-            ship.velocity = [0, 0];
-        };
-    };
+    // document.onkeyup = function(event) {
+    //     if(keys.includes(event.key)){
+    //         ship.velocity = [0, 0];
+    //     };
+    // };
 }
 
 GameView.prototype.animate = function(currentTime) {
